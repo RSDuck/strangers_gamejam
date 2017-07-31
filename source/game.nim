@@ -14,5 +14,4 @@ proc gameDraw() =
 nico.init("impbox", "stranger_jam")
 
 nico.createWindow("stranger_jam", 128, 128, 4)
-
 nico.run(gameInit, gameUpdate, gameDraw)
