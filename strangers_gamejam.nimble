@@ -13,4 +13,4 @@ bin = @["game"]
 # Dependencies
 
 requires "nim >= 0.17.0"
-requires "nico"
+requires "sdl2"

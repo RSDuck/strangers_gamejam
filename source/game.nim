@@ -1,24 +1,15 @@
-import nico
+import
+    sdl2,
 
-proc gameInit() = 
-    echo "init"
-    nico.loadPaletteFromGPL("palette.gpl")
-    nico.loadSpriteSheet("spritesheet.png")
-    nico.loadMusic(0, "Strangers_United.ogg")
-    nico.musicVol(50)
-    nico.music(0)
-    
+    maploader,
+    sprite,
+    setup
 
-proc gameUpdate(dt: float) =
-    discard
+let (window, renderer) = initSetup(title = "Strangers")
 
-proc gameDraw() =
-    cls()
-    music(0)
-    nico.spr(38, 100, 100, 2, 2)
-    nico.spr(64, 0, 0, 2, 4)
+mainloop do (event: openArray[sdl2.Event], dt: float):
+    renderer.clear()
 
-nico.init("impbox", "stranger_jam")
+    renderer.present()
 
-nico.createWindow("stranger_jam", 128, 128, 4)
-nico.run(gameInit, gameUpdate, gameDraw)
+deinitSetup(window, renderer)
